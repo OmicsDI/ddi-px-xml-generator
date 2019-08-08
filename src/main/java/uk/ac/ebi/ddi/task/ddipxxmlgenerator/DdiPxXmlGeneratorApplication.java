@@ -46,7 +46,9 @@ public class DdiPxXmlGeneratorApplication implements CommandLineRunner {
         fileSystem.cleanDirectory(taskProperties.getOutputDir());
         AtomicInteger fileCount = new AtomicInteger(0);
         List<Entry> entries = new ArrayList<>();
-        for (String accession : pxService.getAllDatasetAccessions(taskProperties.getDatabase())) {
+        List<String> accessions = pxService.getAllDatasetAccessions(taskProperties.getDatabase());
+        LOGGER.info("Total records to process: {}", accessions.size());
+        for (String accession : accessions) {
             try {
                 String dsContent = pxService.getDatasetContent(accession);
                 if (dsContent == null) {
@@ -86,8 +88,9 @@ public class DdiPxXmlGeneratorApplication implements CommandLineRunner {
             mm.marshall(database, w);
         }
 
-        String fileName = taskProperties.getPrefix() + fileCount + ".xml";
-        fileSystem.saveFile(outputStream, taskProperties.getOutputDir() + "/" + fileName);
+        String filePath = taskProperties.getOutputDir() + "/" + taskProperties.getPrefix() + fileCount + ".xml";
+        LOGGER.info("Attempting to write data to {}", filePath);
+        fileSystem.saveFile(outputStream, filePath);
         entries.clear();
     }
 }
