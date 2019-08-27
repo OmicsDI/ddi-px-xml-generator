@@ -72,6 +72,14 @@
 			<artifactId>ddi-validator</artifactId>
 			<version>1.2</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/uk.ac.ebi.ddi.api.readers/ddi-api-readers -->
+		<dependency>
+			<groupId>uk.ac.ebi.ddi.api.readers</groupId>
+			<artifactId>ddi-api-readers</artifactId>
+			<version>1.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>
