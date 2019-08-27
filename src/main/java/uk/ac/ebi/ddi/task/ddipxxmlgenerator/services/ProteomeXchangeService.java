@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+import uk.ac.ebi.ddi.api.readers.utils.Transformers;
 import uk.ac.ebi.ddi.task.ddipxxmlgenerator.utils.ReaderPxXML;
 import uk.ac.ebi.ddi.task.ddipxxmlgenerator.utils.RetryClient;
-import uk.ac.ebi.ddi.task.ddipxxmlgenerator.utils.Transformers;
 import uk.ac.ebi.ddi.task.ddipxxmlgenerator.xml.io.PxReader;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Entry;
 

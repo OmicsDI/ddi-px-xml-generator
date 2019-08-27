@@ -2,8 +2,8 @@ package uk.ac.ebi.ddi.task.ddipxxmlgenerator.xml.io;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.ac.ebi.ddi.api.readers.model.IAPIDataset;
 import uk.ac.ebi.ddi.ddidomaindb.dataset.DSField;
-import uk.ac.ebi.ddi.task.ddipxxmlgenerator.model.IAPIDataset;
 import uk.ac.ebi.ddi.task.ddipxxmlgenerator.utils.Constants;
 import uk.ac.ebi.ddi.task.ddipxxmlgenerator.xml.model.*;
 import uk.ac.ebi.ddi.xml.validator.utils.OmicsType;
