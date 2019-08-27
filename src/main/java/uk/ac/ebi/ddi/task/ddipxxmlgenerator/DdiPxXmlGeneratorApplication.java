@@ -59,16 +59,16 @@ public class DdiPxXmlGeneratorApplication implements CommandLineRunner {
                     entries.add(dataset);
                 }
                 if (entries.size() % taskProperties.getEntriesPerFile() == 0) {
-                    writeDatasetsToFile(entries, fileCount.getAndIncrement());
+                    writeDatasetsToFile(entries, accessions.size(), fileCount.getAndIncrement());
                 }
             } catch (Exception e) {
                 LOGGER.error("Exception occurred when processing dataset {}, ", accession, e);
             }
         }
-        writeDatasetsToFile(entries, fileCount.getAndIncrement());
+        writeDatasetsToFile(entries, accessions.size(), fileCount.getAndIncrement());
     }
 
-    private void writeDatasetsToFile(List<Entry> entries, int fileCount) throws IOException {
+    private void writeDatasetsToFile(List<Entry> entries, int total, int fileCount) throws IOException {
         if (entries.size() < 1) {
             return;
         }
@@ -84,7 +84,7 @@ public class DdiPxXmlGeneratorApplication implements CommandLineRunner {
             database.setName(Constants.PX_DATABASE);
             database.setRelease(releaseDate);
             database.setEntries(entries);
-            database.setEntryCount(entries.size());
+            database.setEntryCount(total);
             mm.marshall(database, w);
         }
 
